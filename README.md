@@ -42,12 +42,14 @@ Este proyecto tiene como objetivo proporcionar una solución integral para admin
 3. Configura la conexión a la base de datos.
 4. Ejecuta el script principal para comenzar a utilizar el sistema.
 
+
 ## Uso
 
 1. Accede a la interfaz de usuario.
 2. Utiliza las diferentes opciones y funcionalidades según tus necesidades.
 3. Realiza consultas, genera reportes, administra roles y usuarios, y realiza respaldos/restauraciones de la base de datos según sea necesario.
 
+> 
 ## Uso de Entorno Virtual y Dependencias
 
 Para gestionar las dependencias del proyecto de forma aislada, se recomienda utilizar un entorno virtual de Python. Aquí están los comandos básicos para crear y activar un entorno virtual:
@@ -61,3 +63,25 @@ venv\Scripts\activate
 
 # Activar el entorno virtual (en macOS/Linux)
 source venv/bin/activate
+```
+
+Una vez activado el entorno virtual, puedes instalar las dependencias del proyecto utilizando el archivo requirements.txt:
+
+```bash
+pip install -r requirements.txt
+```
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
