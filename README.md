@@ -1,3 +1,4 @@
+> <h1 align="center">PARTIAL I</h1>
 # Proyecto de Administración de Roles, Usuarios y Permisos
 
 Este proyecto tiene como objetivo proporcionar una solución integral para administrar roles, usuarios y permisos en una base de datos. Proporciona funcionalidades como la creación, modificación y eliminación de usuarios, así como la gestión de roles y asignación de estos a usuarios. También incluye características de respaldo y restauración de la base de datos, así como la generación de consultas y reportes en PDF.
@@ -70,18 +71,3 @@ Una vez activado el entorno virtual, puedes instalar las dependencias del proyec
 ```bash
 pip install -r requirements.txt
 ```
-
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-
-> [!TIP]
-> Helpful advice for doing things better or more easily.
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
