@@ -7,12 +7,12 @@ from frontend.components.componentPrivilegioRol import ComponentPrivilegioRol
 class ComponentAdminRolesUserPer:
     def __init__(self, db_manager):
         self.db_manager = db_manager
-
+        self.controllerUser = ControllerUser(self.db_manager)
+        self.controllerRole = ControllerRole(self.db_manager)
+        self.componentPrivilegioRol = ComponentPrivilegioRol(self.db_manager)
         
-    def componentAdminRolUser(self, db_manager):
-        controllerUser = ControllerUser(db_manager)
-        controllerRole = ControllerRole(db_manager)
-        componentAdminRolUser = ComponentPrivilegioRol(db_manager)
+    def componentAdminRolUser(self):
+        
         while True:
             print("\n=== Gestión de Roles, Usuarios y Permisos ===")
             print("Seleccione una opción:")
@@ -34,32 +34,32 @@ class ComponentAdminRolesUserPer:
             if opcion == "1":
                 username = input("Ingrese el nombre del nuevo usuario: ").strip()
                 password = input("Ingrese la contraseña del nuevo usuario: ").strip()
-                controllerUser.createUser(username, password)
+                self.controllerUser.createUser(username, password)
             elif opcion == "2":
                 username = input("Ingrese el nombre del usuario a modificar: ").strip()
                 new_password = input("Ingrese la nueva contraseña: ").strip()
-                controllerUser.updateUser(username, new_password)
+                self.controllerUser.updateUser(username, new_password)
             elif opcion == "3":
                 username = input("Ingrese el nombre del usuario a eliminar: ").strip()
-                controllerUser.deleteUser(username)
+                self.controllerUser.deleteUser(username)
 
 
             #* options role
 
 
             elif opcion == "4":
-                componentAdminRolUser.assignPrivilegeRole()
+                self.componentPrivilegioRol.assignPrivilegeRole()
             elif opcion == "5":
                 username = input("Ingrese el nombre del usuario: ").strip()
                 role_name = input("Ingrese el nombre del rol: ").strip()
-                controllerUser.assignRoleToUser(username, role_name)
+                self.controllerUser.assignRoleToUser(username, role_name)
             elif opcion == "6":
                 username = input("Ingrese el nombre del usuario: ").strip()
-                controllerUser.showUserPrivileges(username)
+                self.controllerUser.showUserPrivileges(username)
             elif opcion == "7":
-                controllerUser.getUsers()
+                self.controllerUser.getUsers()
             elif opcion == "8":
-                controllerRole.get_roles()
+                self.controllerRole.get_roles()
             elif opcion == "0":
                 break
             else:

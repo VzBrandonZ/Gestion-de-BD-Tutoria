@@ -3,9 +3,10 @@ from backend.controllers.controllersDBBackupRestore import ControllerDBBackupRes
 class ComponentRespaldoRestauracion:
     def __init__(self, db_manager):
         self.db_manager = db_manager
+        self.controllerDBBackupRestore = ControllerDBBackupRestore(db_manager)
 
-    def backupRestoreMenu(self, db_manager):
-        controllerDBBackupRestore = ControllerDBBackupRestore(db_manager)
+    def backupRestoreMenu(self):
+        
 
         while True:
             print("╔════════════════════════════════════════╗")
@@ -22,10 +23,10 @@ class ComponentRespaldoRestauracion:
 
             if opcion == "1":
                 backup_file = input("Ingrese la ruta donde guardar el respaldo: ").strip()
-                controllerDBBackupRestore.backup_database(backup_file)
+                self.controllerDBBackupRestore.backupDatabase(backup_file)
             elif opcion == "2":
                 backup_file = input("Ingrese la ruta del archivo de respaldo: ").strip()
-                controllerDBBackupRestore.restore_database(backup_file)
+                self.controllerDBBackupRestore.restoreDatabase(backup_file)
             elif opcion == "0":
                 break
             else:
