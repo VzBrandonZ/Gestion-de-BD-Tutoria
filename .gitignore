@@ -1,5 +1,4 @@
 ./myenv
-
-
-
-backupFileMariaDB
+**/__pycache__/
+backupFileMariaDB.sql
+Report_estado_matricula.pdf
