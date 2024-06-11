@@ -55,17 +55,21 @@ Este proyecto tiene como objetivo proporcionar una solución integral para admin
 
 Para gestionar las dependencias del proyecto de forma aislada, se recomienda utilizar un entorno virtual de Python. Aquí están los comandos básicos para crear y activar un entorno virtual:
 
+
+> Crear un nuevo entorno virtual
 ```bash
-# Crear un nuevo entorno virtual
 python -m venv venv
-
-# O tambien puedes crearlo con
+```
+> O tambien puedes crearlo con
+```bash
 virtualenv -p python myenv
-
-# Activar el entorno virtual (en Windows)
+```
+> Activar el entorno virtual (en Windows)
+```bash
 venv\Scripts\activate
-
-# Activar el entorno virtual (en macOS/Linux)
+```
+> Activar el entorno virtual (en macOS/Linux)
+```bash
 source venv/bin/activate
 ```
 
