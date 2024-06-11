@@ -28,7 +28,10 @@ class ControllerUser:
 
             print("Usuarios en la base de datos:")
             for user in users:
-                print(user[0].decode('utf-8'))  # Decode byte array to string
+                if isinstance(user[0], bytes):
+                    print(user[0]) 
+                else:
+                    print(user[0].decode('utf-8'))# Decode byte array to string
 
         except mysql.connector.Error as error:
             print("Error al obtener los usuarios:", error)

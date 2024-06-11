@@ -26,7 +26,10 @@ class ControllerRole:
             roles = cursor.fetchall()
             print("Roles en la base de datos:")
             for role in roles:
-                print(role[0].decode('utf-8'))  # Decode byte array to string
+                if isinstance(role[0], bytes):
+                    print(role[0])
+                else:
+                    print(role[0].decode('utf-8'))# Decode byte array to string
         except mysql.connector.Error as error:
             print("Error al obtener los roles:", error)
         finally:

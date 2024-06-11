@@ -1,6 +1,7 @@
 from backend.controllers.controllersList import ControllersList
 from backend.controllers.controllersQueryBuilder import ControllersQueryBuilder
 from backend.controllers.controllersReportGenerator import ControllersReportGenerator
+from frontend.components.componentAddAttributeEntity import ComponentAddAttributeEntity
 
 class ComponentManagementQueriesReports:
     def __init__(self, db_manager):
@@ -16,10 +17,9 @@ class ComponentManagementQueriesReports:
             print("╠════════════════════════════════════════╣")
             print("║  1. Listar Entidades                   ║")
             print("║  2. Listar Atributos por Entidad       ║")
-            print("║  3. Agregar Entidad a la Consulta      ║")
-            print("║  4. Agregar Atributo a la Consulta     ║")
-            print("║  5. Generar Reporte en PDF             ║")
-            print("║  0. Salir                              ║")
+            print("║  3. Agregar Atributo a la Consulta     ║")
+            print("║  4. Generar Reporte en PDF             ║")
+            print("║  0. Volver al Menu Principal           ║")
             print("╚════════════════════════════════════════╝")
             opcion = input("Seleccione una opción: ")
 
@@ -29,22 +29,30 @@ class ComponentManagementQueriesReports:
                 for entity in entities:
                     print(entity)
             elif opcion == "2":
-                entity = input("Ingrese el nombre de la entidad: ")
+                entity = input("Ingrese el nombre de la entidad: ").upper()
                 attributes = self.controllersList.listAttributes(entity)
                 print(f"Atributos de {entity}:")
                 for attribute in attributes:
                     print(attribute)
             elif opcion == "3":
-                entity = input("Ingrese el nombre de la entidad: ")
-                self.controllersQueryBuilder.addEntity(entity)
+                while True:
+                    entity = input("Ingrese el nombre de la entidad: ").upper()
+                    optionData = self.controllersQueryBuilder.addEntity(entity)                       
+                    if optionData == '0':
+                        break
+
+                while True:
+                    attribute = input("Ingrese el nombre del atributo: ")
+                    
+                    choice = self.controllersQueryBuilder.addAttribute(entity, attribute)
+                    if choice == '1':
+                        choice = ComponentAddAttributeEntity().componentAddAttributeEntity()
+                    if choice == '0':
+                        break
             elif opcion == "4":
-                entity = input("Ingrese el nombre de la entidad: ")
-                attribute = input("Ingrese el nombre del atributo: ")
-                self.controllersQueryBuilder.addAttribute(entity, attribute)
-            elif opcion == "5":
                 filename = input("Ingrese el nombre del archivo PDF: ")
                 report_generator = ControllersReportGenerator(self.db_manager, self.controllersQueryBuilder)
-                report_generator.generatePdfReport(filename)
+                report_generator.generatePdfReport(filename)                
             elif opcion == "0":
                 break
             else:

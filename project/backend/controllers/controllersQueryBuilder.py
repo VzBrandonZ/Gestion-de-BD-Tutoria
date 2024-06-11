@@ -12,18 +12,28 @@ class ControllersQueryBuilder:
         return self.attribute_list
 
     def addEntity(self, entity):
-        if entity in self.controllersList.listEntities():
-            self.entities.append(entity)
-            self.attributes[entity] = []
-        else:
-            print(f"Entidad {entity} no encontrada.")
+        try:
+            # Verificar si la entidad ya ha sido agregada
+            if entity in self.entities:
+                print(f"Entidad {entity} ya fue agregada anteriormente.")
+            # Verificar si la entidad existe en la lista de entidades controladas
+            elif entity in self.controllersList.listEntities():
+                self.entities.append(entity)
+                self.attributes[entity] = []
+                return '0'
+            else:
+                print(f"Entidad {entity} no encontrada.")
+        except Exception as e:
+            print(f"Error al agregar la entidad {entity}: {e}")
+
 
     def addAttribute(self, entity, attribute):
-        
+        data = '1'
         if entity in self.entities:
             if attribute in self.controllersList.listAttributes(entity):
                 self.attributes[entity].append(attribute)
                 self.attribute_list.append(attribute)
+                return data
             else:
                 print(f"Atributo {attribute} no encontrado en la entidad {entity}.")
         else:
