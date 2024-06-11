@@ -59,6 +59,9 @@ Para gestionar las dependencias del proyecto de forma aislada, se recomienda uti
 # Crear un nuevo entorno virtual
 python -m venv venv
 
+# O tambien puedes crearlo con
+virtualenv -p python myenv
+
 # Activar el entorno virtual (en Windows)
 venv\Scripts\activate
 
